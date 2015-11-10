@@ -3,7 +3,7 @@ bp = {}
 bp.mod = "redo"
 
 -- Do mobs spawn in protected areas (0=yes, 1=no)
-bp.protected = 1
+bp.protected = 0
 
 -- Initial settings check
 local damage_enabled = minetest.setting_getbool("enable_damage")
@@ -956,7 +956,7 @@ function bp:spawn_specific(name, nodes, neighbors, min_light, max_light, interva
 			end
 
 			-- spawn above node
-			pos.y = pos.y + 1
+			pos.y = pos.y + 4
 
 			-- mobs cannot spawn inside protected areas if enabled
 			if bp.protected == 1 and minetest.is_protected(pos, "") then

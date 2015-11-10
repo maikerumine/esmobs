@@ -119,7 +119,7 @@ bp:register_mob("esmobs:sand_monster", {
 	},
 })
 
-bp:register_spawn("esmobs:sand_monster", {"default:sand","default:dirt", "meru:stone","group:crumbly"},20, -1, 7000, 2, 31000)
+bp:register_spawn("esmobs:sand_monster", {"default:sand", "meru:stone","group:sand"},20, -1, 7000, 2, 31000)
 
 
 

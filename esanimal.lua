@@ -16,7 +16,7 @@
 
 bp:register_mob("esmobs:sheep", {
 	type = "animal",
-	passive = true,
+	passive = false,
 	hp_min = 12,
 	hp_max = 20,
 	armor = 100,
