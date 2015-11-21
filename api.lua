@@ -894,8 +894,8 @@ function bp:register_mob(name, def)
 			self.object:set_properties(tmp)
 			return minetest.serialize(tmp)
 		end,
-		
-		
+
+
 -------BEGIN ON PUNCH CODE
 
 		on_punch = function(self, hitter, tflp, tool_capabilities, dir)
@@ -940,21 +940,21 @@ function bp:register_mob(name, def)
 					end
 				end
 			end
---------END ORIG ON PUNCH CODE	
---------ADDING LAGS MOBS BONES HERE	
+--------END ORIG ON PUNCH CODE
+--------ADDING LAGS MOBS BONES HERE
     --on_punch = function(self, hitter)
             --mob killed
          if self.object:get_hp() <= 0 then
             if hitter and hitter:is_player() and hitter:get_inventory() then
                for _,drop in ipairs(self.drops) do
-----------	       
+----------
 --	       	--THIS CODE GIVES YOU THE DROP INSTANT ON DEATH--removed to place drops in bones.
 --              	 if math.random(1, drop.chance) == 1 then
 --                  	hitter:get_inventory():add_item("main", ItemStack(drop.name.." "..math.random(drop.min, drop.max)))
 --               	end
- ----------  
+ ----------
                end
-	       
+
                     --mob bones, like player bones added by Andrei modified by maikerumine
                  if math.random(1, 1) == 1  then
                         local pos = self.object:getpos()
@@ -969,32 +969,32 @@ function bp:register_mob(name, def)
 				--DROPS FILL BONE
                             for _,drop in ipairs(self.drops) do
                                 if math.random(1, drop.chance) == 1 then
-                                    local stack = ItemStack(drop.name.." "..math.random(drop.min, drop.max)) 
+                                    local stack = ItemStack(drop.name.." "..math.random(drop.min, drop.max))
                                     if inv:room_for_item("main", stack) then
                                         inv:add_item("main", stack)
                                     end
                                 end
                             end
-		    		    
+
                             meta:set_string("formspec", "size[8,9;]"..
                                     "list[current_name;main;0,0;8,4;]"..
                                     "list[current_player;main;0,5;8,4;]")
---[[	
+--[[
 			--lags orig mob bone code for ref
 				    meta:set_string("infotext", self.full_name.."'s fresh bones")
 				    meta:set_string("owner", "Stone monster")
 				    meta:set_int("bonetime_counter", 0)
 				    local timer  = minetest.get_node_timer(spaceforbones)
 				    timer:start(10)
-				    ]]	
+				    ]]
 
 --BEGIN TIME STRING
-				local time = os.date("*t");--this keeps the bones meta to turn old				    
-				    
+				local time = os.date("*t");--this keeps the bones meta to turn old
+
 --CHOOSE OPTION BELOW:
-				meta:set_string("infotext", self.name.." slain".. meta:get_string("owner").." at ".. time.year .. "/".. time.month .. "/" .. time.day .. ", " ..time.hour.. ":".. time.min ..")");		--SHOW TIME AT DEATH			    
+				meta:set_string("infotext", self.name.." slain".. meta:get_string("owner").." at ".. time.year .. "/".. time.month .. "/" .. time.day .. ", " ..time.hour.. ":".. time.min ..")");		--SHOW TIME AT DEATH
 --				meta:set_string("infotext", self.name.."'s fresh bones")			--SHOW TIME AT BONE EXPIRE
---CHOOSE OPTION BELOW:				
+--CHOOSE OPTION BELOW:
 				meta:set_string( "owner", "Extreme Survival Mob R.I.P.")			--SET OWNER FOR TIMER
 --				meta:set_string("owner")									--SET NO OWNER NO TIMER
                             meta:set_int("bonetime_counter", 0)
@@ -1016,10 +1016,10 @@ function bp:register_mob(name, def)
                hitter:set_wielded_item( tool )
             end
          end
---end,--use if using original punch code.			
-			
+--end,--use if using original punch code.
+
 	end,
--------END ON PUNCH FULL CODE				
+-------END ON PUNCH FULL CODE
 	})
 end
 
@@ -1075,9 +1075,9 @@ function bp:spawn_specific(name, nodes, neighbors, min_light, max_light, interva
 			minetest.add_entity(pos, name)
 			--print ("Spawned "..name.." at "..minetest.pos_to_string(pos).." on "..node.name.." near "..neighbors[1])
 
---TODO --ADD CODE SO MOB CANNOT SPAWN IN MINESHAFT, ALSO REMOVE			
-			
-			
+--TODO --ADD CODE SO MOB CANNOT SPAWN IN MINESHAFT, ALSO REMOVE
+
+
 		end
 	})
 end
@@ -1179,8 +1179,8 @@ function check_for_death(self)
 		return
 	end
 
---USE THIS CODE TO HAVE VISIBLE DROPS AND COMMENT OUT THE MOBS BONES	
---[[	
+--USE THIS CODE TO HAVE VISIBLE DROPS AND COMMENT OUT THE MOBS BONES
+--[[
 	local pos = self.object:getpos()
 	pos.y = pos.y + 1.5 -- drop items half a block higher
 	self.object:remove()
@@ -1193,13 +1193,13 @@ function check_for_death(self)
 			end
 		end
 	end
-	
-]]	
+
+]]
 
 ------------------------------------------------------
 ------------------------------------------------------MOBS BONES ON DIE
          if self.object:get_hp() <= 0 then
-                        local pos = self.object:getpos()
+ --[[                       local pos = self.object:getpos()
                         local nn = minetest.get_node(pos).name
                         local spaceforbones=nil
                         if nn=="air" or nn=="default:water_flowing" or nn=="default:water_source" or nn=="default:lava_source" or nn=="default:lava_flowing" then
@@ -1210,28 +1210,28 @@ function check_for_death(self)
                             inv:set_size("main", 8*4)
                             for _,drop in ipairs(self.drops) do
                                 if math.random(1, drop.chance) == 1 then
-                                    local stack = ItemStack(drop.name.." "..math.random(drop.min, drop.max)) 
+                                    local stack = ItemStack(drop.name.." "..math.random(drop.min, drop.max))
                                     if inv:room_for_item("main", stack) then
                                         inv:add_item("main", stack)
                                     end
                                 end
-                            end  
+                            end
                             meta:set_string("formspec", "size[8,9;]"..
                                     "list[current_name;main;0,0;8,4;]"..
                                     "list[current_player;main;0,5;8,4;]")
-				local time = os.date("*t");--this keeps the bones meta to turn old				    
-				meta:set_string("infotext", self.name.." slain".. meta:get_string("owner").." at ".. time.year .. "/".. time.month .. "/" .. time.day .. ", " ..time.hour.. ":".. time.min ..")");		--SHOW TIME AT DEATH			    				
+				local time = os.date("*t");--this keeps the bones meta to turn old
+				meta:set_string("infotext", self.name.." slain".. meta:get_string("owner").." at ".. time.year .. "/".. time.month .. "/" .. time.day .. ", " ..time.hour.. ":".. time.min ..")");		--SHOW TIME AT DEATH
 				meta:set_string( "owner", "Extreme Survival Mob R.I.P.")			--SET OWNER FOR TIMER
                             meta:set_int("bonetime_counter", 0)
                             local timer  = minetest.get_node_timer(spaceforbones)
                             timer:start(10)
-                        end
+                        end]]
 				self.object:remove()
 			return
                  end
-		 
+
 		 --end--UNCOMMENT IF RE-ADDING VISIBLE DROPS
-------------------------------------------------------	
+------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
 
@@ -1243,7 +1243,7 @@ function check_for_death(self)
 		self.on_die(self, pos)
 
 	end
-end 
+end
 
 -- from TNT mod
 function calc_velocity(pos1, pos2, old_vel, power)
@@ -1366,11 +1366,11 @@ end
 				if tamed == true or
 					self.tamed == true then
 					self.order = "follow"
-					
+
 					--self.set_velocity(self, self.run_velocity)
 					--self:set_animation("run")
-				end				
-	--TODO FIGHT MOBS AND STILL FOLLOW...				
+				end
+	--TODO FIGHT MOBS AND STILL FOLLOW...
 				--[[local s = self.object:getpos()
 				local p = self.follow.player:getpos()
 				local dist = ((p.x-s.x)^2 + (p.y-s.y)^2 + (p.z-s.z)^2)^0.5
@@ -1384,8 +1384,8 @@ end
 					self.follow.dist = dist
 				end
 					end]]
-					
-					
+
+
 			--[[				-- npc, find closest monster to attack
 			local min_dist = self.view_range + 1
 			local min_player = nil
@@ -1409,10 +1409,10 @@ end
 					self.do_attack(self, min_player, min_dist)
 				end]]
 
-end			
-				
-				
-				
+end
+
+
+
 
 function process_weapon(player, time_from_last_punch, tool_capabilities)
 local weapon = player:get_wielded_item()
