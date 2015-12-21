@@ -2,6 +2,7 @@
 --maikerumine
 --made for Extreme Survival game
 
+minetest.register_alias("lagsmobs:cursed_stone", "esmobs:cursed_stone")
 
 --dofile(minetest.get_modpath("esmobs").."/api.lua")
 
@@ -55,7 +56,7 @@ bp:register_mob("esmobs:tree_monster", {
 	},
 })
 
-bp:register_spawn("esmobs:tree_monster", {"default:leaves", "default:jungleleaves","default:dirt", "default:jungletree"}, 5, 0, 7000, 2, 31000)
+bp:register_spawn("esmobs:tree_monster", {"default:leaves", "default:jungleleaves","default:dirt", "default:jungletree"}, 5, 0, 14000, 1, 31000)
 
 --bp:register_egg("esmobs:tree_monster", "Tree Monster", "default_tree_top.png", 1)
 
@@ -108,7 +109,7 @@ bp:register_mob("esmobs:sand_monster", {
 	},
 })
 
-bp:register_spawn("esmobs:sand_monster", {"default:sand", "meru:stone","group:sand"},4, -1, 7000, 2, 31000)
+bp:register_spawn("esmobs:sand_monster", {"default:sand", "meru:stone","group:sand"},4, -1, 14000, 1, 31000)
 
 -- Stone Monster by PilzAdam
 
@@ -144,7 +145,7 @@ bp:register_mob("esmobs:stone_monster", {
 		{name = "default:coal_lump",
 		chance=3, min=0, max=1,},
 	},
-	water_damage = 0,
+	water_damage = 10,
 	lava_damage = 1,
 	light_damage = 1,
 	animation = {
@@ -156,7 +157,7 @@ bp:register_mob("esmobs:stone_monster", {
 	},
 })
 
-bp:register_spawn("esmobs:stone_monster", {"default:stone"}, 5, 0, 3000, 10, 500)
+bp:register_spawn("esmobs:stone_monster", {"default:stone"}, 5, -1, 14000, 4, 500)
 
 --bp:register_egg("esmobs:stone_monster", "Stone Monster", "default_stone.png", 1)
 
@@ -206,7 +207,7 @@ bp:register_mob("esmobs:spider", {
 	},
 })
 
-bp:register_spawn("esmobs:spider", {"default:stone" ,"default:cobble","group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 6, 0, 6000, 1, 71)
+bp:register_spawn("esmobs:spider", {"default:stone" ,"default:cobble","group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 6, 0, 14000, 1, 71)
 
 --bp:register_egg("esmobs:spider", "Spider", "mobs_cobweb.png", 1)
 
@@ -292,7 +293,32 @@ bp:register_mob("esmobs:oerkkii", {
 	replace_offset = -1,
 })
 
-bp:register_spawn("esmobs:oerkkii", {"default:stone"}, 5, 0, 6000, 1, -10)
+bp:register_spawn("esmobs:oerkkii", {"default:stone"}, 5, 0, 14000, 1, -10)
+bp:register_spawn("esmobs:oerkkii", "esmobs:cursed_stone", 4, -1, 2, 40, 500, -500)
+
+minetest.register_node("esmobs:cursed_stone", {
+	description = "Cursed stone",
+	tiles = {
+		"mobs_cursed_stone_top.png",
+		"mobs_cursed_stone_bottom.png",
+		"mobs_cursed_stone.png",
+		"mobs_cursed_stone.png",
+		"mobs_cursed_stone.png",
+		"mobs_cursed_stone.png"
+	},
+	is_ground_content = false,
+	groups = {cracky=1, level=2},
+	drop = 'default:goldblock',
+	sounds = default.node_sound_stone_defaults(),
+})
+minetest.register_craft({
+	output = 'esmobs:cursed_stone',
+	recipe = {
+		{'default:obsidian', 'default:obsidian', 'default:obsidian'},
+		{'default:obsidian', 'default:goldblock', 'default:obsidian'},
+		{'default:obsidian', 'default:obsidian', 'default:obsidian'},
+	}
+})
 
 --mobs:register_egg("esmobs:oerkki", "Oerkki", "default_obsidian.png", 1)
 
@@ -337,7 +363,7 @@ bp:register_mob("esmobs:applmons", {
 		punch_end = 48,
 	}
 })
-bp:register_spawn("esmobs:applmons", {"default:stone"}, 6, -1, 6000, 2, -30)
+bp:register_spawn("esmobs:applmons", {"default:stone"}, 6, -1, 14000, 1, -30)
 
 
 --Herobrine's Bloody Ghost by Lovehart and maikerumine  http://minetest.fensta.bplaced.net/#author=lovehart
@@ -382,4 +408,4 @@ bp:register_mob("esmobs:herobrines_bloody_ghost", {
 	}
 })
 bp:register_spawn("esmobs:herobrines_bloody_ghost", {"default:stone","default:desert_sand"}, 6, -1, 12000, 1, 10)
-
+bp:register_spawn("esmobs:herobrines_bloody_ghost", "esmobs:cursed_stone", 4, -1, 2, 40, 500, -500)

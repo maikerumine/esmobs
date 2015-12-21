@@ -11,7 +11,7 @@
 
 bp.npc_drops = { "default:pick_mese", "esmobs:meat", "es:sword_emerald", "es:ruby_crystal", "farming:bread", "default:wood" }--Added 20151121
 
-bp:register_spawn("esmobs:badplayer32", {"default:obsidian","es:infiniumblock","es:stone_with_infinium"}, 7, -1, 9000, 1, -450)
+bp:register_spawn("esmobs:badplayer32", {"default:obsidian","es:infiniumblock","es:stone_with_infinium"}, 7, -1, 14000, 1, -450)
 bp:register_mob("esmobs:badplayer32", {
 	type = "monster",
 	hp_min = 177,
@@ -147,7 +147,7 @@ bp:register_mob("esmobs:badplayer32", {
 })
 
 
-bp:register_spawn("esmobs:Candy", {"default:dirt_with_grass","default:stone", "default:stonebrick","default:cobble"}, 20, 10, 9000, 1, 31000)
+bp:register_spawn("esmobs:Candy", {"default:dirt_with_grass","default:stone", "default:stonebrick","default:cobble"}, 20, 10, 14000, 1, 31000)
 bp:register_mob("esmobs:Candy", {
 	type = "npc",
 	hp_min = 125,
@@ -285,7 +285,7 @@ bp:register_mob("esmobs:Candy", {
 	step = 1,
 })
 
-bp:register_spawn("esmobs:Infiniumman", {"default:dirt_with_grass","default:stone", "default:stonebrick","default:cobble"}, 20, 10, 9000, 1, 31000)
+bp:register_spawn("esmobs:Infiniumman", {"default:dirt_with_grass","default:stone", "default:stonebrick","default:cobble"}, 20, 10, 14000, 1, 31000)
 bp:register_mob("esmobs:Infiniumman", {
 	type = "npc",
 	hp_min = 25,
@@ -423,7 +423,7 @@ bp:register_mob("esmobs:Infiniumman", {
 	step = 1,
 })
 --TEXTURE BY: http://minetest.fensta.bplaced.net/#author=bajanhgk
-bp:register_spawn("esmobs:Maikerumine", {"default:dirt_with_grass","default:stone", "default:stonebrick","default:cobble"}, 20, 1, 9000, 1, 31000)
+bp:register_spawn("esmobs:Maikerumine", {"default:dirt_with_grass","default:stone", "default:stonebrick","default:cobble"}, 20, 1, 14000, 1, 31000)
 bp:register_mob("esmobs:Maikerumine", {
 	type = "npc",
 	hp_min = 95,
@@ -467,7 +467,7 @@ bp:register_mob("esmobs:Maikerumine", {
 		bp:face_pos(self,clicker:getpos())
 		bp:team_player(self,clicker:getpos())
 		if self.state ~= "path" and self.state ~= "following" then
-		local_chat(clicker:getpos(),"Infinium Man: I'll give those monsters a good whack on the head with this Infinium ingot!",3)
+		local_chat(clicker:getpos(),"Maikerumine: Maybe a new game is in the works...  Hmmm...",3)
 			if not self.tamed then
 				self.tamed = true
 				self.follow = true
@@ -477,7 +477,7 @@ bp:register_mob("esmobs:Maikerumine", {
 
 		on_rightclick = function(self, clicker)
 		local item = clicker:get_wielded_item()
-		local_chat(clicker:getpos(),"Infinium Man: I'll give those monsters a good whack on the head with this Infinium ingot!",3)
+		local_chat(clicker:getpos(),"Maikerumine: Maybe a new game is in the works...  Hmmm...",3)
 		if item:get_name() == "esmobs:meat" or item:get_name() == "farming:bread" then
 			local hp = self.object:get_hp()
 			if hp + 4 > self.hp_max then return end
