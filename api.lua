@@ -11,7 +11,12 @@ local damage_enabled = minetest.setting_getbool("enable_damage")
 local peaceful_only = minetest.setting_getbool("only_peaceful_mobs")
 local enable_blood = minetest.setting_getbool("mobs_enable_blood") or true
 bp.remove = minetest.setting_getbool("remove_far_mobs") or true  --line 903
+<<<<<<< HEAD
 bp.protected = tonumber(minetest.setting_get("mobs_spawn_protected")) or 1
+=======
+
+
+>>>>>>> origin/master
 
 
 function bp:register_mob(name, def)

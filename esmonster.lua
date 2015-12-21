@@ -157,7 +157,11 @@ bp:register_mob("esmobs:stone_monster", {
 	},
 })
 
+<<<<<<< HEAD
 bp:register_spawn("esmobs:stone_monster", {"default:stone"}, 5, -1, 14000, 4, 500)
+=======
+bp:register_spawn("esmobs:stone_monster", {"default:stone"}, 5, 0, 6000, 10, 500)
+>>>>>>> origin/master
 
 --bp:register_egg("esmobs:stone_monster", "Stone Monster", "default_stone.png", 1)
 
