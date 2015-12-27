@@ -9,8 +9,8 @@ bp:register_mob("esmobs:chickoboo", {
 	hp_min = 50,
 	hp_max = 80,
 	armor = 90,
-	collisionbox = {-0.4, -3.1, -0.4, 0.4, -1.7, 0.4},
-	--	collisionbox = {-0.3, -0.75, -0.3, 0.3, 0.1, 0.3},
+	--collisionbox = {-0.4, -3.1, -0.4, 0.4, -1.7, 0.4},
+		collisionbox = {-0.3, -0.75, -0.3, 0.3, 0.1, 0.3},
 	visual = "mesh",
 	mesh = "mobs_chicken.x",
 	textures = {
@@ -23,7 +23,8 @@ bp:register_mob("esmobs:chickoboo", {
 		{"mobs_chick.png", "mobs_chick.png", "mobs_chick.png", "mobs_chick.png",
 		"mobs_chick.png", "mobs_chick.png", "mobs_chick.png", "mobs_chick.png", "mobs_chick.png"},
 	},
-	visual_size = {x=4.5,y=4.5},
+	--visual_size = {x=4.5,y=4.5},
+	visual_size = {x=1,y=1},
 	makes_footstep_sound = true,
 	sounds = {
 		random = "mobs_chicken",
@@ -88,7 +89,7 @@ bp:register_mob("esmobs:chickoboo", {
 	end,
 })
 
-bp:register_spawn("esmobs:chickoboo", {"default:dirt_with_grass", "ethereal:bamboo_dirt","default:cobble"}, 15, 10, 22000, 2, 31000)
+bp:register_spawn("esmobs:chickoboo", {"default:dirt_with_grass", "ethereal:bamboo_dirt"}, 15, 10, 32000, 1, 31000)
 
 --bp:register_egg("esmobs:chickoboo", "Chickoboo", "mobs_chicken_inv.png", 0)
 

@@ -1,5 +1,5 @@
 -- Mobs Api (26th April 2015) By TenPlus1
---REVISED 20151122 maikerumine for esmobs
+--REVISED 20151128 maikerumine for esmobs
 bp = {}
 bp.mod = "redo"
 
@@ -10,6 +10,9 @@ bp.protected = 0
 local damage_enabled = minetest.setting_getbool("enable_damage")
 local peaceful_only = minetest.setting_getbool("only_peaceful_mobs")
 local enable_blood = minetest.setting_getbool("mobs_enable_blood") or true
+bp.remove = minetest.setting_getbool("remove_far_mobs") or true  --line 903
+bp.protected = tonumber(minetest.setting_get("mobs_spawn_protected")) or 0
+
 
 function bp:register_mob(name, def)
 	minetest.register_entity(name, {
@@ -19,7 +22,8 @@ function bp:register_mob(name, def)
 		on_die = def.on_die,
 		jump_height = def.jump_height or 6,
 		jump_chance = def.jump_chance or 0,
-		rotate = def.rotate or 0, -- 0=front, 1.5=side, 3.0=back, 4.5=side2
+		--rotate = def.rotate or 0, -- 0=front, 1.5=side, 3.0=back, 4.5=side2
+		rotate = math.rad(def.rotate or 0), --  0=front, 90=side, 180=back, 270=side2
 		lifetimer = def.lifetimer or 180,
 		hp_min = def.hp_min or 9,
 		hp_max = def.hp_max or 90,
@@ -79,6 +83,43 @@ function bp:register_mob(name, def)
 		hornytimer = 0,
 		child = false,
 		gotten = false,
+
+
+		--ADDED 20151128 TENPLUS1
+		get_staticdata = function(self)
+
+		-- remove mob when out of range unless tamed
+		if bp.remove
+		and self.remove_ok
+		and not self.tamed then
+			--print ("REMOVED", self.remove_ok, self.name)
+			self.object:remove()
+			return nil
+		end
+
+		self.remove_ok = true
+		self.attack = nil
+		self.following = nil
+		self.state = "stand"
+
+		local tmp = {}
+
+		for _,stat in pairs(self) do
+			local t = type(stat)
+			if  t ~= 'function'
+			and t ~= 'nil'
+			and t ~= 'userdata' then
+				tmp[_] = self[_]
+			end
+		end
+		-- print('===== '..self.name..'\n'.. dump(tmp)..'\n=====\n')
+		return minetest.serialize(tmp)
+		end,
+
+
+
+
+
 
 		do_attack = function(self, player, dist)
 			if self.state ~= "attack" then
@@ -847,6 +888,7 @@ function bp:register_mob(name, def)
 			if self.type == "monster" and self.tamed == true then
 				self.type = "npc"
 			end
+
 		end,
 
 		get_staticdata = function(self)
@@ -894,6 +936,7 @@ function bp:register_mob(name, def)
 			self.object:set_properties(tmp)
 			return minetest.serialize(tmp)
 		end,
+
 
 
 -------BEGIN ON PUNCH CODE
@@ -991,7 +1034,7 @@ function bp:register_mob(name, def)
 --CHOOSE OPTION BELOW:
 --				meta:set_string( "owner", "Extreme Survival Mob R.I.P.")	--SET OWNER FOR TIMER
 				meta:set_string("owner")						--SET NO OWNER NO TIMER
-				
+
                             meta:set_int("bonetime_counter", 0)
                             local timer  = minetest.get_node_timer(spaceforbones)
                             timer:start(10)
@@ -1037,9 +1080,11 @@ function bp:spawn_specific(name, nodes, neighbors, min_light, max_light, interva
 			end
 
 			-- spawn above node
-			pos.y = pos.y + 4
+			pos.y = pos.y + 1
+			--pos.x = pos.x + 2  --ADDED TO FIX TUNNEL SPAWN
+			--pos.z = pos.z + 2  --ADDED TO FIX TUNNEL SPAWN
+			-- mobs cannot spawn inside protected areas if enabled  --20151224 removed because broken
 
-			-- mobs cannot spawn inside protected areas if enabled
 			if bp.protected == 1 and minetest.is_protected(pos, "") then
 				return
 			end
@@ -1055,8 +1100,8 @@ function bp:spawn_specific(name, nodes, neighbors, min_light, max_light, interva
 			local nod = minetest.get_node_or_nil(pos)
 			if not nod or not nod.name or not minetest.registered_nodes[nod.name]
 			or minetest.registered_nodes[nod.name].walkable == true then return end
-			pos.y = pos.y + 3--test to see if prevent mineshaft spawn
---			pos.y = pos.y + 1--original
+			pos.y = pos.y + 3 --test to see if prevent mineshaft spawn
+--			--pos.y = pos.y + 1--original
 			nod = minetest.get_node_or_nil(pos)
 			if not nod or not nod.name or not minetest.registered_nodes[nod.name]
 			or minetest.registered_nodes[nod.name].walkable == true then return end
@@ -1067,6 +1112,8 @@ function bp:spawn_specific(name, nodes, neighbors, min_light, max_light, interva
 
 			-- spawn mob half block higher
 			pos.y = pos.y - 0.5
+			--pos.x = pos.x - 1  --ADDED TO FIX TUNNEL SPAWN
+			--pos.z = pos.z - 1  --ADDED TO FIX TUNNEL SPAWN
 			minetest.add_entity(pos, name)
 			--print ("Spawned "..name.." at "..minetest.pos_to_string(pos).." on "..node.name.." near "..neighbors[1])
 
