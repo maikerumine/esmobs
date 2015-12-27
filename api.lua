@@ -4,14 +4,23 @@ bp = {}
 bp.mod = "redo"
 
 -- Do mobs spawn in protected areas (0=yes, 1=no)
-bp.protected = 0
+--bp.protected = 1
 
 -- Initial settings check
 local damage_enabled = minetest.setting_getbool("enable_damage")
 local peaceful_only = minetest.setting_getbool("only_peaceful_mobs")
 local enable_blood = minetest.setting_getbool("mobs_enable_blood") or true
 bp.remove = minetest.setting_getbool("remove_far_mobs") or true  --line 903
+<<<<<<< HEAD
 bp.protected = tonumber(minetest.setting_get("mobs_spawn_protected")) or 0
+=======
+<<<<<<< HEAD
+bp.protected = tonumber(minetest.setting_get("mobs_spawn_protected")) or 1
+=======
+
+
+>>>>>>> origin/master
+>>>>>>> origin/master
 
 
 function bp:register_mob(name, def)
@@ -1081,10 +1090,16 @@ function bp:spawn_specific(name, nodes, neighbors, min_light, max_light, interva
 
 			-- spawn above node
 			pos.y = pos.y + 1
+<<<<<<< HEAD
 			--pos.x = pos.x + 2  --ADDED TO FIX TUNNEL SPAWN
 			--pos.z = pos.z + 2  --ADDED TO FIX TUNNEL SPAWN
 			-- mobs cannot spawn inside protected areas if enabled  --20151224 removed because broken
 
+=======
+			pos.x = pos.x + 2  --ADDED TO FIX TUNNEL SPAWN
+			pos.z = pos.z + 2  --ADDED TO FIX TUNNEL SPAWN
+			-- mobs cannot spawn inside protected areas if enabled
+>>>>>>> origin/master
 			if bp.protected == 1 and minetest.is_protected(pos, "") then
 				return
 			end
@@ -1112,8 +1127,13 @@ function bp:spawn_specific(name, nodes, neighbors, min_light, max_light, interva
 
 			-- spawn mob half block higher
 			pos.y = pos.y - 0.5
+<<<<<<< HEAD
 			--pos.x = pos.x - 1  --ADDED TO FIX TUNNEL SPAWN
 			--pos.z = pos.z - 1  --ADDED TO FIX TUNNEL SPAWN
+=======
+			pos.x = pos.x - 1  --ADDED TO FIX TUNNEL SPAWN
+			pos.z = pos.z - 1  --ADDED TO FIX TUNNEL SPAWN
+>>>>>>> origin/master
 			minetest.add_entity(pos, name)
 			--print ("Spawned "..name.." at "..minetest.pos_to_string(pos).." on "..node.name.." near "..neighbors[1])
 

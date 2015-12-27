@@ -157,7 +157,15 @@ bp:register_mob("esmobs:stone_monster", {
 	},
 })
 
+<<<<<<< HEAD
 bp:register_spawn("esmobs:stone_monster", {"default:stone"}, 5, -1, 14000, 4, 500)
+=======
+<<<<<<< HEAD
+bp:register_spawn("esmobs:stone_monster", {"default:stone"}, 5, -1, 14000, 4, 500)
+=======
+bp:register_spawn("esmobs:stone_monster", {"default:stone"}, 5, 0, 6000, 10, 500)
+>>>>>>> origin/master
+>>>>>>> origin/master
 
 --bp:register_egg("esmobs:stone_monster", "Stone Monster", "default_stone.png", 1)
 
@@ -294,7 +302,11 @@ bp:register_mob("esmobs:oerkkii", {
 })
 
 bp:register_spawn("esmobs:oerkkii", {"default:stone"}, 5, 0, 14000, 1, -10)
+<<<<<<< HEAD
 bp:register_spawn("esmobs:oerkkii", "esmobs:cursed_stone", 4, -1, 2, 20, 500, -500)
+=======
+bp:register_spawn("esmobs:oerkkii", "esmobs:cursed_stone", 4, -1, 2, 40, 500, -500)
+>>>>>>> origin/master
 
 minetest.register_node("esmobs:cursed_stone", {
 	description = "Cursed stone",
@@ -408,4 +420,8 @@ bp:register_mob("esmobs:herobrines_bloody_ghost", {
 	}
 })
 bp:register_spawn("esmobs:herobrines_bloody_ghost", {"default:stone","default:desert_sand"}, 6, -1, 12000, 1, 10)
+<<<<<<< HEAD
 bp:register_spawn("esmobs:herobrines_bloody_ghost", "esmobs:cursed_stone", 4, -1, 2, 1, 500, -500)
+=======
+bp:register_spawn("esmobs:herobrines_bloody_ghost", "esmobs:cursed_stone", 4, -1, 2, 40, 500, -500)
+>>>>>>> origin/master

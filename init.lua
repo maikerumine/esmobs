@@ -20,6 +20,8 @@ dofile(minetest.get_modpath("esmobs").."/bloco.lua")
 
 --dofile(minetest.get_modpath("esmobs").."/spawner.lua")
 
+--dofile(minetest.get_modpath("esmobs").."/spawner.lua")
+
 --IF ES IS LOADED YOU WILL SEE OTHER MOBS HOLDING THE SPECIAL TOOLS
 if es then
 	dofile(minetest.get_modpath("esmobs").."/esnpc2.lua")
