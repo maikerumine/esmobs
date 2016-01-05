@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --esmobs v0.0.7
+=======
+--esmobs v0.0.4
+>>>>>>> origin/master
 --Andrey created mob for his world needs
 --made for Extreme Survival game by maikerumine
 
@@ -28,6 +32,7 @@ minetest.register_craft({
 		{'default:obsidian', 'default:obsidian', 'default:obsidian'},
 	}
 })
+<<<<<<< HEAD
 --bp:register_spawn("esmobs:oerkkii", "esmobs:cursed_stone", 4, -1, 2, 20, 500, -500)  --comment out to disable
 
 
@@ -48,3 +53,7 @@ minetest.register_craft({
 --bp:register_egg("esmobs:spider", "Spider", "mobs_cobweb.png", 1)
 --mobs:register_egg("esmobs:oerkki", "Oerkki", "default_obsidian.png", 1)
 --bp:register_spawn("esmobs:herobrines_bloody_ghost", "esmobs:cursed_stone", 4, -1, 2, 1, 500, -500)
+=======
+
+--bp:register_spawn("esmobs:oerkkii", "esmobs:cursed_stone", 4, -1, 2, 40, 500, -500)
+>>>>>>> origin/master
