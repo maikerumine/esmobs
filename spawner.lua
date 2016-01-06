@@ -31,7 +31,7 @@ minetest.register_craft({
 	}
 })
 
-bp:register_spawn("esmobs:oerkkii", "esmobs:cursed_stone", 4, -1, 2, 20, 500, -500)  --comment out to disable
+bp:register_spawn("esmobs:oerkkii", "esmobs:cursed_stone", 4, -1, 2, 2, 7000, -500)  --comment out to disable
 
 
 -- SPAWN EGGS

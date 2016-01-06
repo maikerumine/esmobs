@@ -233,7 +233,7 @@ print(item:get_name(), minetest.get_item_group(item:get_name(), "dye"))
 		end
 	end,
 })
-bp:register_spawn("esmobs:sheep2", {"default:dirt_with_grass"}, 20, 12, 5000, 8, 31000)
+bp:register_spawn("esmobs:sheep2", {"default:dirt_with_grass"}, 20, 12, 5000, 2, 31000)
 
 
 bp:register_mob("esmobs:pig", {
@@ -325,7 +325,7 @@ bp:register_mob("esmobs:pig", {
 	end
 	end,
 })
-bp:register_spawn("esmobs:pig", {"default:dirt_with_grass"}, 20, 12, 5000, 8, 31000)
+bp:register_spawn("esmobs:pig", {"default:dirt_with_grass"}, 20, 12, 5000, 1, 31000)
 
 
 bp:register_mob("esmobs:cow", {
@@ -390,7 +390,7 @@ bp:register_mob("esmobs:cow", {
 		end
 	end,
 })
-bp:register_spawn("esmobs:cow", {"default:dirt_with_grass"}, 20, 8, 7000, 7, 31000)
+bp:register_spawn("esmobs:cow", {"default:dirt_with_grass"}, 20, 8, 7000, 1, 31000)
 
 
 bp:register_mob("esmobs:chicken", {
@@ -449,6 +449,6 @@ bp:register_mob("esmobs:chicken", {
 		end
 	end,
 })
-bp:register_spawn("esmobs:chicken", {"default:dirt_with_grass"}, 20, 8, 7000, 7, 31000)
+bp:register_spawn("esmobs:chicken", {"default:dirt_with_grass"}, 20, 8, 7000, 2, 31000)
 
 
