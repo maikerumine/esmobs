@@ -195,15 +195,12 @@ bp:register_mob("esmobs:tree_monster", {
 		punch_start = 48,		punch_end = 62,
 	},
 })
-<<<<<<< HEAD
-bp:register_spawn("esmobs:tree_monster", {"default:leaves", "default:jungleleaves","default:dirt", "default:jungletree"}, 5, 0, 14000, 1, 31000)
-=======
 
 bp:register_spawn("esmobs:tree_monster", {"default:leaves", "default:jungleleaves","default:dirt", "default:jungletree"}, 5, 0, 14000, 1, 31000)
+
 
 --bp:register_egg("esmobs:tree_monster", "Tree Monster", "default_tree_top.png", 1)
 
->>>>>>> origin/master
 -- ethereal sapling compatibility
 if not minetest.get_modpath("ethereal") then
 	minetest.register_alias("ethereal:tree_sapling", "default:sapling")
@@ -252,10 +249,7 @@ bp:register_mob("esmobs:sand_monster", {
 		punch_start = 74,		punch_end = 105,
 	},
 })
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
 bp:register_spawn("esmobs:sand_monster", {"default:sand", "meru:stone","group:sand"},4, -1, 14000, 1, 31000)
 
 -- Stone Monster by PilzAdam
@@ -303,19 +297,11 @@ bp:register_mob("esmobs:stone_monster", {
 		punch_start = 40,		punch_end = 63,
 	},
 })
-<<<<<<< HEAD
-bp:register_spawn("esmobs:stone_monster", {"default:stone"}, 5, -1, 14000, 4, 500)
-=======
 
-<<<<<<< HEAD
-bp:register_spawn("esmobs:stone_monster", {"default:stone"}, 5, -1, 14000, 4, 500)
-=======
-<<<<<<< HEAD
-bp:register_spawn("esmobs:stone_monster", {"default:stone"}, 5, -1, 14000, 4, 500)
-=======
+
+
 bp:register_spawn("esmobs:stone_monster", {"default:stone"}, 5, 0, 6000, 10, 500)
->>>>>>> origin/master
->>>>>>> origin/master
+
 
 --bp:register_egg("esmobs:stone_monster", "Stone Monster", "default_stone.png", 1)
 
@@ -403,7 +389,7 @@ minetest.register_craft({
 		{"farming:string", "", "farming:string"},
 	}
 })
->>>>>>> origin/master
+
 
 
 -- Oerkki by PilzAdam
@@ -452,14 +438,10 @@ bp:register_mob("esmobs:oerkkii", {
 	replace_offset = -1,
 })
 
-bp:register_spawn("esmobs:oerkkii", {"default:stone"}, 5, 0, 14000, 1, -10)
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-bp:register_spawn("esmobs:oerkkii", "esmobs:cursed_stone", 4, -1, 2, 20, 500, -500)
-=======
+
+
 bp:register_spawn("esmobs:oerkkii", "esmobs:cursed_stone", 4, -1, 2, 40, 500, -500)
->>>>>>> origin/master
+
 
 minetest.register_node("esmobs:cursed_stone", {
 	description = "Cursed stone",
@@ -486,7 +468,7 @@ minetest.register_craft({
 })
 
 --mobs:register_egg("esmobs:oerkki", "Oerkki", "default_obsidian.png", 1)
->>>>>>> origin/master
+
 
 --Applmons by maikerumine
 bp:register_mob("esmobs:applmons", {
@@ -529,12 +511,9 @@ bp:register_mob("esmobs:applmons", {
 		punch_end = 48,
 	}
 })
-<<<<<<< HEAD
-bp:register_spawn("esmobs:applmons", {"default:stone","nether:rack"}, 6, -1, 14000, 1, -30)
-=======
-bp:register_spawn("esmobs:applmons", {"default:stone"}, 6, -1, 14000, 1, -30)
 
->>>>>>> origin/master
+bp:register_spawn("esmobs:applmons", {"default:stone","nether:rack"}, 6, -1, 14000, 1, -30)
+
 
 --Herobrine's Bloody Ghost by Lovehart and maikerumine  http://minetest.fensta.bplaced.net/#author=lovehart
 bp:register_mob("esmobs:herobrines_bloody_ghost", {
@@ -577,14 +556,9 @@ bp:register_mob("esmobs:herobrines_bloody_ghost", {
 		punch_end = 48,
 	}
 })
-<<<<<<< HEAD
+
 bp:register_spawn("esmobs:herobrines_bloody_ghost", {"default:stone","default:desert_sand","nether:brick"}, 6, -1, 12000, 1, 10)
 
-=======
-bp:register_spawn("esmobs:herobrines_bloody_ghost", {"default:stone","default:desert_sand"}, 6, -1, 12000, 1, 10)
-<<<<<<< HEAD
+
 bp:register_spawn("esmobs:herobrines_bloody_ghost", "esmobs:cursed_stone", 4, -1, 2, 1, 500, -500)
-=======
-bp:register_spawn("esmobs:herobrines_bloody_ghost", "esmobs:cursed_stone", 4, -1, 2, 40, 500, -500)
->>>>>>> origin/master
->>>>>>> origin/master
+
