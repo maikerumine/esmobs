@@ -52,7 +52,7 @@ bp:register_mob("esmobs:dungeon_master", {
 	armor = 60,
 	collisionbox = {-0.7, -1, -0.7, 0.7, 1.6, 0.7},
 	visual = "mesh",
-	mesh = "mobs_dungeon_master.x",
+	mesh = "mobs_dungeon_master.b3d",
 	textures = {
 		{"mobs_dungeon_master.png"},
 		{"mobs_dungeon_master2.png"},
@@ -449,7 +449,7 @@ bp:register_mob("esmobs:herobrines_bloody_ghost", {
 bp:register_spawn("esmobs:herobrines_bloody_ghost", {"default:stone","default:desert_sand","nether:brick"}, 6, -1, 12000, 1, 10)
 
 --Phoenix from NSSM
-bp:register_spawn("esmobs:phoenix", {"air","air"}, 6, -1, 14000, 1, 100)
+bp:register_spawn("esmobs:phoenix", {"air","air"}, 6, -1, 17000, 1, 100)
 --bp:spawn_specific("esmobs:phoenix", {"air"}, {"air"}, 10, 20, 120, 12000, 1, 10, 40)
 bp:register_mob("esmobs:phoenix", {
 	type = "monster",
