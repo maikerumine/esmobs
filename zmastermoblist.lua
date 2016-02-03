@@ -229,13 +229,13 @@ bp:register_mob("esmobs:sand_monster", {
 	},
 })
 
-
+--[[
 -- Stone Monster by PilzAdam
 bp:register_mob("esmobs:stone_monster", {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
-	damage = 2,
+	damage = 8,
 	hp_min = 32,
 	hp_max = 55,
 	armor = 80,
@@ -265,7 +265,7 @@ bp:register_mob("esmobs:stone_monster", {
 	},
 	water_damage = 10,
 	lava_damage = 1,
-	light_damage = 1,
+	light_damage = 2,
 	animation = {
 		speed_normal = 15,		speed_run = 15,
 		stand_start = 0,		stand_end = 14,
@@ -276,7 +276,7 @@ bp:register_mob("esmobs:stone_monster", {
 })
 
 
-
+]]
 
 
 -- Oerkki by PilzAdam
@@ -284,7 +284,7 @@ bp:register_mob("esmobs:oerkkii", {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
-	damage = 4,
+	damage = 3,
 	hp_min = 8,
 	hp_max = 34,
 	armor = 100,
@@ -324,7 +324,7 @@ bp:register_mob("esmobs:oerkkii", {
 	replace_offset = -1,
 })
 
-
+--[[
 
 bp:register_mob("esmobs:dirt", {
 	type = "monster",
@@ -340,7 +340,7 @@ bp:register_mob("esmobs:dirt", {
 	follow = "flowers:viola",--swap out type randomly for server players"flowers:tulip","flowers:rose","flowers:geranium","flowers:dandelion_yellow","flowers:dandelion_white",
 	walk_velocity = 2.5,
 	run_velocity = 3.8,
-	damage = 2.7,
+	damage = 3.7,
 	drops = {
 		{name = "default:dirt",
 		chance = 1,
@@ -377,7 +377,7 @@ bp:register_mob("esmobs:dirt", {
 		attack = "mobs_stone_attack",
 		},
 })
-
+]]
 ---------------------------------------
 --EXTREME SURVUVAL MOBS
 ---------------------------------------
@@ -440,7 +440,7 @@ bp:register_mob("esmobs:applmons", {
 	view_range = 15,
 	walk_velocity = 1,
 	run_velocity = 3,
-	damage = 2,
+	damage = 3,
 	drops = {
 		{name = "default:apple",
 		chance = 4,
@@ -600,8 +600,8 @@ bp:register_mob("esmobs:bomber", {
 	lifetimer = 500,
 	floats=1,
 	rotate = 4.5,
-	walk_velocity = -2.5,
-	run_velocity = -3.5,
+	walk_velocity = -1.5,
+	run_velocity = -2.5,
   fall_speed = 0,
   stepheight = 12,
   sounds = {
@@ -642,8 +642,8 @@ bp:register_mob("esmobs:bomber", {
 		--arrow = "esmobs:bonebullet",
 		--arrow = "esmobs:tnt2_ent",
 		arrow = "esmobs:bone_monster",
-		--reach = 1,
-		shoot_interval = 4.5,
+		reach = 1,
+		shoot_interval = 5,
 
 	animation = {
 		speed_normal = 22,
@@ -698,7 +698,9 @@ bp:register_mob("esmobs:bone_monster", {
 		{name = "bones:bones",
 		chance = 1, min = 3, max = 5,},
 		{name = "default:steelblock",
-		chance = 1, min = 0, max = 2,},
+		chance = 3, min = 0, max = 2,},
+		{name = "esmobs:feather",
+		chance = 1, min = 3, max = 9,},
 
 	},
 	water_damage = 4,
@@ -1022,7 +1024,7 @@ bp:register_mob("esmobs:dirt2", {
 	follow = "flowers:rose",--swap out type randomly for server players"flowers:tulip","flowers:rose","flowers:geranium","flowers:dandelion_yellow","flowers:dandelion_white",
 	walk_velocity = 1.5,
 	run_velocity = 2.8,
-	damage = 2.7,
+	damage = 3.7,
 	drops = {
 		{name = "default:dirt",
 		chance = 1,
@@ -1065,7 +1067,7 @@ bp:register_mob("esmobs:stone_monster", {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
-	damage = 8,
+	damage = 3,
 	hp_min = 32,
 	hp_max = 55,
 	armor = 80,
@@ -1105,6 +1107,51 @@ bp:register_mob("esmobs:stone_monster", {
 	},
 })
 
+
+-- Stone Monster by PilzAdam
+bp:register_mob("esmobs:stone_monster2", {
+	type = "monster",
+	passive = false,
+	attack_type = "dogfight",
+	damage = 6,
+	hp_min = 82,
+	hp_max = 105,
+	armor = 80,
+	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
+	visual = "mesh",
+	mesh = "mobs_stone_monster.x",
+	textures = {
+		{"mobs_6.png"},
+	},
+	visual_size = {x=3, y=2.6},
+	makes_footstep_sound = true,
+	sounds = {
+		random = "mobs_stonemonster",
+	},
+	walk_velocity = 1.5,
+	run_velocity = 2.6,
+	jump = true,
+	floats = 1,
+	view_range = 10,
+	drops = {
+		{name = "default:torch",
+		chance = 2, min = 0, max = 2,},
+		{name = "default:iron_lump",
+		chance=5, min=0, max=1,},
+		{name = "default:coal_lump",
+		chance=3, min=0, max=1,},
+	},
+	water_damage = 10,
+	lava_damage = 1,
+	light_damage = 1,
+	animation = {
+		speed_normal = 15,		speed_run = 15,
+		stand_start = 0,		stand_end = 14,
+		walk_start = 15,		walk_end = 38,
+		run_start = 40,			run_end = 63,
+		punch_start = 40,		punch_end = 63,
+	},
+})
 ------------------------------
 --MINETEST ANIMALS
 ------------------------------
@@ -1907,7 +1954,7 @@ bp:register_mob("esmobs:chickoboo", {
 	visual = "mesh",
 	mesh = "mobs_chicken.x",
 	textures = {
-		{"mobs_31.png", "mobs_chicken.png", "mobs_chicken.png", "mobs_chicken.png",
+		{"mobs_chicken.png", "mobs_chicken.png", "mobs_chicken.png", "mobs_chicken.png",
 		"mobs_chicken.png", "mobs_chicken.png", "mobs_chicken.png", "mobs_chicken.png", "mobs_chicken.png"},
 		{"mobs_chicken_black.png", "mobs_chicken_black.png", "mobs_chicken_black.png", "mobs_chicken_black.png",
 		"mobs_chicken_black.png", "mobs_chicken_black.png", "mobs_chicken_black.png", "mobs_chicken_black.png", "mobs_chicken_black.png"},
@@ -2374,7 +2421,7 @@ bp:register_mob("esmobs:badplayer10", {
 	run_velocity =15,
 	damage = 4,
 	drops = {
-		{name = "default:cotton",
+		{name = "farming:cotton",
 		chance = 1,
 		min = 3,
 		max = 5,},
@@ -3352,7 +3399,7 @@ bp:register_mob("esmobs:Jasmine", {
 	view_range = 18,
 	walk_velocity = 5,
 	run_velocity = 3.4,
-	damage = 4,
+	damage = 7,
 	drops = {
 		{name = "default:diamond_block",
 		chance = 5,
@@ -3372,7 +3419,7 @@ bp:register_mob("esmobs:Jasmine", {
 	drawtype = "front",
 	water_damage = 10,
 	lava_damage = 50,
-	light_damage = 0,
+	light_damage = 70,
 	on_rightclick = function(self, clicker)
 		local item = clicker:get_wielded_item()
 		local_chat(clicker:getpos(),"Jasmine: Tame me now, come to me later, we will chat after I have cooled off.",3)
@@ -4370,7 +4417,7 @@ bp:register_mob("esmobs:Vanessa", {
 		punch_start = 200,		punch_end = 219,
 	},
 	sounds = {
-		war_cry = "mobs_fireball",
+		war_cry = "default_punch",
 		death = "mobs_slash_attack",
 		attack = "default_punch",
 		},
@@ -5271,7 +5318,7 @@ bp:register_mob("esmobs:Candy", {
 	view_range = 25,
 	walk_velocity = 1.9,
 	run_velocity = 3.9,
-	damage = 5,
+	damage = 9,
 	drops = {
 		{name = "default:apple",
 		chance = 1,
@@ -5291,7 +5338,7 @@ bp:register_mob("esmobs:Candy", {
 	drawtype = "front",
 	water_damage = 10,
 	lava_damage = 50,
-	light_damage = 0,
+	light_damage = 25,
 		on_rightclick = function(self, clicker)
 		local item = clicker:get_wielded_item()
 		local_chat(clicker:getpos(),"Candy Raver: My Ruby Sword will cut through anything, let's do it!",3)
