@@ -3,17 +3,7 @@
 --made for Extreme Survival game
 --License for code WTFPL
 
---[[
-DEPENDS:
-default
-inventory_plus?
-farming?
-bones?
-intllib?
-es?
-farorb?
-jdukebox?
-]]
+
 esmobs={}
 --API AND CONFIG
 	--dofile(minetest.get_modpath("esmobs").."/config.lua")
