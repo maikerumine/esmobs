@@ -17,7 +17,7 @@ local spawn_protected = tonumber(minetest.setting_get("mobs_spawn_protected")) o
 local remove_far = minetest.setting_getbool("remove_far_mobs")
 
 -- pathfinding settings
-local enable_pathfinding = true
+local enable_pathfinding = false
 local enable_pathfind_digging = false
 local stuck_timeout = 3 -- how long before mob gets stuck in place and starts searching
 local stuck_path_timeout = 10 -- how long will mob follow path before giving up
@@ -1233,9 +1233,9 @@ minetest.register_entity(name, {
 				and obj.type == "monster" then
 
 					-- attack monster
-					p = obj.object:getpos()
+					local p = obj.object:getpos()  --maikerumine fix
 
-					dist = get_distance(p, s)
+					local dist = get_distance(p, s)  --maikerumine fix
 
 					if dist < min_dist then
 						min_dist = dist
@@ -1946,6 +1946,7 @@ minetest.register_entity(name, {
 		if weapon:get_definition().sounds ~= nil then
 
 			local s = math.random(0, #weapon:get_definition().sounds)
+			--local s = math.random(0, weapon:get_definition().sounds)
 
 			minetest.sound_play(weapon:get_definition().sounds[s], {
 				object = hitter,
@@ -2021,9 +2022,9 @@ minetest.register_entity(name, {
 			end
 		end
 --BREAK
-		
-		
-		
+
+
+
 		-- exit here if dead
 		if check_for_death(self) then
 			return
